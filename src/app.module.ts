@@ -9,6 +9,8 @@ import { ProductModule } from './product/product.module';
 import { Category } from './category/entities/category.entity';
 import { Product } from './product/entities/product.entity';
 import { PubModule } from './pub/pub.module';
+import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -27,6 +29,10 @@ import { PubModule } from './pub/pub.module';
     CategoryModule,
     ProductModule,
     PubModule,
+    AuthModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -32,6 +32,7 @@ export class ProductService {
     id: number,
     updateProductDto: UpdateProductDto,
   ): Promise<Product> {
+    console.log('🚀 ~ ProductService ~ updateProductDto:', updateProductDto);
     const existingProduct = await this.productRepository.findOneBy({ id });
     if (!existingProduct) {
       throw new HttpException('Product not found', 404);

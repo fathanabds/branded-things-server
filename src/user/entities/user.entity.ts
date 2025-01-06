@@ -19,7 +19,7 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ nullable: true })
   username: string;
 
   @Column()
@@ -31,10 +31,10 @@ export class User {
   @Column({ type: 'enum', enum: ['admin', 'staff'], default: 'staff' })
   role: string;
 
-  @Column()
+  @Column({ nullable: true })
   phoneNumber: string;
 
-  @Column()
+  @Column({ nullable: true })
   address: string;
 
   @OneToMany(() => Product, (product) => product.user)

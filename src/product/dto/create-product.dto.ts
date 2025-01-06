@@ -10,11 +10,15 @@ export class CreateProductDto {
   @IsDefined({ message: 'Description is required' })
   description: string;
 
+  @IsNumber()
+  @Type(() => Number)
   @IsNotEmpty({ message: 'Price is required' })
   @IsDefined({ message: 'Price is required' })
   @Min(0, { message: 'Price must be greater than 0' })
   price: number;
 
+  @IsNumber()
+  @Type(() => Number)
   stock: number;
   imgUrl: string;
 
