@@ -5,6 +5,7 @@ import {
   IsNotEmpty,
   MinLength,
 } from 'class-validator';
+import { Role } from 'src/enums/roles.enum';
 
 export class CreateUserDto {
   username: string;
@@ -22,7 +23,7 @@ export class CreateUserDto {
   @IsEnum(['admin', 'staff'], { message: 'Role must be either admin or staff' })
   @IsNotEmpty({ message: 'Role is required' })
   @IsDefined({ message: 'Role is required' })
-  role: string;
+  role: Role;
 
   phoneNumber: string;
 

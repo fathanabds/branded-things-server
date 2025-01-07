@@ -1,5 +1,6 @@
 import { hashPassword } from 'src/helpers/bcrypt';
 import { Product } from 'src/product/entities/product.entity';
+import { Role } from 'src/enums/roles.enum';
 import {
   BeforeInsert,
   Column,
@@ -22,14 +23,14 @@ export class User {
   @Column({ nullable: true })
   username: string;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()
   password: string;
 
-  @Column({ type: 'enum', enum: ['admin', 'staff'], default: 'staff' })
-  role: string;
+  @Column({ type: 'enum', enum: Role, default: 'staff' })
+  role: Role;
 
   @Column({ nullable: true })
   phoneNumber: string;
