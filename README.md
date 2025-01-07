@@ -31,7 +31,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd branded-things
+  cd branded-things-server
 ```
 
 Install dependencies
