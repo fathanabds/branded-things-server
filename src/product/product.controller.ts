@@ -13,6 +13,7 @@ import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { RestrictStaffGuard } from 'src/guards/restrict-staff/restrict-staff.guard';
 
 @UseGuards(AuthGuard)
 @Controller('products')
@@ -34,6 +35,7 @@ export class ProductController {
     return this.productService.findOne(id);
   }
 
+  @UseGuards(RestrictStaffGuard)
   @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
@@ -42,6 +44,7 @@ export class ProductController {
     return this.productService.update(id, updateProductDto);
   }
 
+  @UseGuards(RestrictStaffGuard)
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.productService.remove(id);

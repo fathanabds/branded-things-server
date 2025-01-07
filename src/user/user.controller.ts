@@ -4,7 +4,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { Roles } from 'src/decorators/roles.decorator';
 import { Role } from 'src/enums/roles.enum';
-import { RolesGuard } from 'src/roles/roles.guard';
+import { RolesGuard } from 'src/guards/roles/roles.guard';
 
 @Roles(Role.Admin)
 @UseGuards(AuthGuard, RolesGuard)
